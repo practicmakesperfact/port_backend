@@ -18,11 +18,12 @@ SECRET_KEY = config('SECRET_KEY', default="3xv5y(7(fk2%f^$v#dieo#k_d#t#dby6ns)(6
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config(
-    'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1',
-    cast=lambda v: [s.strip() for s in v.split(',')]
-)
+ALLOWED_HOSTS = [
+    'port-backend-8.onrender.com',
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+]
 
 # ==============================
 # APPLICATION DEFINITION
