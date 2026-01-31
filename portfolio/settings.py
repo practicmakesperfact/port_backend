@@ -138,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://haymanot.vercel.app', 
+    'https://haymanot1.vercel.app', 
     # You can keep the config() version too:
     *config(
         'CORS_ALLOWED_ORIGINS',
