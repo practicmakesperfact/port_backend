@@ -1,12 +1,20 @@
 from pathlib import Path
 from decouple import config
+from decouple import Config, RepositoryEnv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+env_path = BASE_DIR / '.env'
+if env_path.exists():
+    config = Config(RepositoryEnv(env_path))
+else:
+    from decouple import config
 
 # ==============================
 # SECURITY
 # ==============================
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default="3xv5y(7(fk2%f^$v#dieo#k_d#t#dby6ns)(6an-b%&c@sj6zp")
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
