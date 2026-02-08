@@ -25,7 +25,12 @@ class ContactMessage(models.Model):
         super().save(*args, **kwargs)
         
         if is_new:
-            self.send_notification_email()
+            try:
+                self.send_notification_email()
+            except Exception as e:
+                # Log error but don't fail the save operation
+                print(f"Email notification failed: {e}")
+                pass
 
     def send_notification_email(self):
         """Send email notification using Django's send_mail"""
