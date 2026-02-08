@@ -17,5 +17,14 @@ urlpatterns = [
     path('api/contact/', include('contact.urls')),
 ]
 
+# Serve media files in both development and production
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # For production, we need to serve media files through Django
+    # In production, you should use a proper file server like Nginx
+    # But for Render, we'll serve through Django as a fallback
+    from django.views.static import serve
+    urlpatterns += [
+        path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]
