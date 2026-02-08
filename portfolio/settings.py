@@ -89,15 +89,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # ==============================
-# DATABASE (PostgreSQL for production)
+# DATABASE (PostgreSQL only)
 # ==============================
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        'DATABASE_URL',
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')
-    )
+    'default': dj_database_url.config('DATABASE_URL')
 }
 
 # ==============================
