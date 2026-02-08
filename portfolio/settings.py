@@ -89,13 +89,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # ==============================
-# DATABASE (SQLite – OK for portfolio)
+# DATABASE (PostgreSQL for production)
 # ==============================
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        'DATABASE_URL',
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+    )
 }
 
 # ==============================
