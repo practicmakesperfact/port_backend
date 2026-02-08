@@ -127,6 +127,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Configure WhiteNoise to serve media files in production
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True  # For development
+
 # ==============================
 # DEFAULT PRIMARY KEY
 # ==============================
